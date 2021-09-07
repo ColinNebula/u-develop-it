@@ -2,11 +2,12 @@
 const express = require('express');
 
 // Add the PORT designation
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
+// Get goes here
+
 // Add the Express.js middleware
-// Express middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -15,7 +16,8 @@ app.use(express.json());
       res.status(404).end();
   });
 
-// Add the function that will start the Express.js server on port 3001
+  
+// Listener here
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
