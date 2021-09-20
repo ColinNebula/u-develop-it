@@ -1,19 +1,20 @@
 // Import express
 const express = require('express');
-const inputCheck = require('./utils/inputCheck');
 // Importing connection route
 const db = require('./db/connection');
+
+//A Api Routes
+const apiRoutes = require('./routes/apiRoutes');
 // Add the PORT designation
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-const apiRoutes = require('./routes/apiRoutes');
-// Add after Express middleware
-app.use('/api', apiRoutes);
-
 // Add the Express.js middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+// Add after Express middleware
+app.use('/api', apiRoutes);
 
 // Default response for any other request (Not Found)
 app.use((req, res) => {
